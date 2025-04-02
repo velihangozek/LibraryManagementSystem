@@ -62,9 +62,11 @@ LibraryManagementSystem/
    javac org/velihangozek/*.java
    ```
 
-1. **Run the Application:**
+2. **Run the Application:**
 
+   ```bash
    java org.velihangozek.LibraryManagementSystem
+   ```
 
 ## Usage
 
