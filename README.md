@@ -40,6 +40,7 @@ A Java-based console application designed as a capstone project to manage a libr
 
 The project follows a standard Java package structure:
 
+```
 LibraryManagementSystem/ 
 ├── src/ 
     │ 
@@ -51,6 +52,7 @@ LibraryManagementSystem/
             │ 
             └── LibraryManagementSystem.java 
 ├── README.md
+```
 
 ## How to Run
 
