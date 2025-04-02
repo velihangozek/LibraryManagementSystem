@@ -68,7 +68,7 @@ LibraryManagementSystem/
 
 ## Usage
 
-    ```
+    
     After launching the application, follow the on-screen menu:
 
     Add a New Book:
@@ -88,7 +88,7 @@ LibraryManagementSystem/
 
     Exit:
     Select the exit option to terminate the application.
-    ```
+    
 
 ## Additional Information
 
