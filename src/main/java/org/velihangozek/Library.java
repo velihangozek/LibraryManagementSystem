@@ -1,7 +1,5 @@
 package org.velihangozek;
 
-// File: Library.java
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +8,7 @@ import java.util.List;
  * Evaluation Form Q2: Library class implementation.
  */
 public class Library {
-    private List<Book> books;
+    private final List<Book> books;
 
     // Constructor: initializes the library's book collection.
     public Library() {
@@ -30,12 +28,15 @@ public class Library {
             System.out.println("No books in the library.");
             return;
         }
+        System.out.println("Viewing All Books => \n");
+        System.out.println("--------------------");
         for (Book book : books) {
             System.out.println(book);
+            System.out.println("--------------------"); // Separator between books.
         }
     }
 
-    // Searches for a book by title (case insensitive).
+    // Searches for a book by title (exact match - retained for backward compatibility).
     // Evaluation Form Q5: Searching for a book.
     public Book searchBook(String title) {
         for (Book book : books) {
@@ -46,10 +47,31 @@ public class Library {
         return null;
     }
 
-    // Borrows a book if available.
+    // Searches for books by title (partial matching, case-insensitive).
+    public List<Book> searchBooks(String titlePart) {
+        List<Book> foundBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getTitle().toLowerCase().contains(titlePart.toLowerCase())) {
+                foundBooks.add(book);
+            }
+        }
+        return foundBooks;
+    }
+
+    // Searches for a book by ISBN (case-insensitive).
+    public Book searchBookByISBN(String isbn) {
+        for (Book book : books) {
+            if (book.getIsbn().equalsIgnoreCase(isbn)) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    // Borrows a book using ISBN.
     // Evaluation Form Q6: Borrowing a book.
-    public boolean borrowBook(String title) {
-        Book book = searchBook(title);
+    public boolean borrowBook(String isbn) {
+        Book book = searchBookByISBN(isbn);
         if (book == null) {
             System.out.println("Book not found.");
             return false;
@@ -63,10 +85,10 @@ public class Library {
         return true;
     }
 
-    // Returns a borrowed book.
+    // Returns a borrowed book using ISBN.
     // Evaluation Form Q7: Returning a book.
-    public boolean returnBook(String title) {
-        Book book = searchBook(title);
+    public boolean returnBook(String isbn) {
+        Book book = searchBookByISBN(isbn);
         if (book == null) {
             System.out.println("Book not found.");
             return false;

@@ -1,20 +1,20 @@
 package org.velihangozek;
 
-// File: Book.java
-
 /**
  * Represents a book in the library.
  * Evaluation Form Q1: Book class implementation.
  */
 public class Book {
-    private String title;
-    private String author;
+    private final String title;
+    private final String author;
+    private final String isbn;
     private boolean isBorrowed;
 
     // Constructor: initializes a new Book instance.
-    public Book(String title, String author) {
+    public Book(String title, String author, String isbn) {
         this.title = title;
         this.author = author;
+        this.isbn = isbn;
         this.isBorrowed = false; // The book is available by default.
     }
 
@@ -26,6 +26,11 @@ public class Book {
     // Getter for the book author.
     public String getAuthor() {
         return author;
+    }
+
+    // Getter for the book ISBN.
+    public String getIsbn() {
+        return isbn;
     }
 
     // Checks if the book is borrowed.
@@ -46,6 +51,6 @@ public class Book {
     // Returns a string representation of the book.
     @Override
     public String toString() {
-        return "Title: " + title + ", Author: " + author + ", Borrowed: " + (isBorrowed ? "Yes" : "No");
+        return "Title: " + title + "\nAuthor: " + author + "\nISBN: " + isbn + "\nBorrowed: " + (isBorrowed ? "Yes" : "No");
     }
 }
